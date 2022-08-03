@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -25,3 +26,9 @@ Route::get('/users', function () {
 });
 
 Route::post('/register', [RegisterController::class, 'create']);
+Route::post('/login', [LoginController::class, 'create']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/user', [LoginController::class, 'user']);
+    Route::post('/logout', [LoginController::class, 'destroy']);
+});

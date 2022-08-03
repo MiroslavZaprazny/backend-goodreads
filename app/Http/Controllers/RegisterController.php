@@ -15,7 +15,7 @@ class RegisterController extends Controller
             'password' => 'required|confirmed|min:4',
             'password_confirmation' => 'required|min:4'
         ]);
-
+        
         if ($validate->fails()) {
             return response()->json([
                 'validate_err' => $validate->messages()

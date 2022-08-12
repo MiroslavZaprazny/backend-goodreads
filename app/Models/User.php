@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
+
+    public function currentlyReading()
+    {
+        return $this->hasOne(CurrentlyReading::class);
+    }
 }

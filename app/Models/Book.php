@@ -9,8 +9,15 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $with = ['author'];
+
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
     }
 }

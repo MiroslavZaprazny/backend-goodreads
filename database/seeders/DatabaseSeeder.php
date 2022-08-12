@@ -24,7 +24,12 @@ class DatabaseSeeder extends Seeder
             'name' => "Robert Greene",
         ]);
 
+        Author::factory()->create([
+            'name' => "Cal newport",
+        ]);
+
         Book::factory()->create([
+            'author_id' => 1,
             'title' => "Mastery",
             'description' => 'In this book, Robert Greene demonstrates 
             that the ultimate form of power is mastery itself. 

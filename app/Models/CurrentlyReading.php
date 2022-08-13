@@ -9,7 +9,8 @@ class CurrentlyReading extends Model
 {
     use HasFactory;
 
-    protected $with = ['book'];    
+    protected $fillabe = ['current_page'];
+    protected $with = ['book'];
 
     public function book()
     {

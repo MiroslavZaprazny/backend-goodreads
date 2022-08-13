@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/set-current-page', [CurrentlyReadingController::class, 'edit']);
 Route::post('/currently-reading', [CurrentlyReadingController::class, 'index']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'create']);

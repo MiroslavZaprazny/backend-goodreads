@@ -64,7 +64,12 @@ class CurrentlyReadingController extends Controller
      */
     public function edit(CurrentlyReading $currentlyReading)
     {
-        //
+        $currentlyReading = CurrentlyReading::where(['user_id' => request('user_id')])->where(['status' => 1])->first();
+
+        $currentlyReading->current_page = request('current_page');
+        $currentlyReading->save();
+
+        return response()->json($currentlyReading);
     }
 
     /**

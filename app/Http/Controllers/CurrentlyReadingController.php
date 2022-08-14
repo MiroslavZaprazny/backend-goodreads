@@ -66,6 +66,12 @@ class CurrentlyReadingController extends Controller
     {
         $currentlyReading = CurrentlyReading::where(['user_id' => request('user_id')])->where(['status' => 1])->first();
 
+        if (request('status') === 0) {
+            $currentlyReading->status = 0;
+            $currentlyReading->save();
+            return response()->json($currentlyReading);
+        }
+
         $currentlyReading->current_page = request('current_page');
         $currentlyReading->save();
 

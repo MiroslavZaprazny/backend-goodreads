@@ -16,7 +16,11 @@ class BookController extends Controller
      */
     public function index()
     {
-       //
+        $searchInput = request('search');
+        if ($searchInput >= 2) {
+            $searchResults = Book::where('title', 'LIKE', '%' . $searchInput . '%')->get();
+            return response()->json($searchResults);
+        }
     }
 
     /**

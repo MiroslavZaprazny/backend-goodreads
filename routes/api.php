@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/set-current-page', [CurrentlyReadingController::class, 'edit']);
+Route::post('/search', [BookController::class, 'index']);
 Route::post('/currently-reading', [CurrentlyReadingController::class, 'index']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'create']);

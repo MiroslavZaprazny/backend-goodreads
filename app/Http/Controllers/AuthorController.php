@@ -15,7 +15,10 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        $author_id = request('author_id');
+        $author = Author::findOrFail($author_id);
+        
+        return response()->json($author->books);
     }
 
     /**

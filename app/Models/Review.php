@@ -13,6 +13,8 @@ class Review extends Model
         'created_at'  => 'date:m-d',
     ];
 
+    protected $with = ['user'];
+
     public function user()
     {
         return $this->belongsTo(User::class);

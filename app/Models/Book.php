@@ -9,7 +9,11 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $with = ['author'];
+    protected $with = ['author', 'reviews'];
+
+    protected $casts = [
+        'published_at'  => 'date:Y-m-d',
+    ];
 
     public function reviews()
     {

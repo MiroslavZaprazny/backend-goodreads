@@ -13,6 +13,8 @@ class Review extends Model
         'created_at'  => 'date:m-d',
     ];
 
+    protected $fillable = ['book_id', 'body', 'user_id', 'rating'];
+
     protected $with = ['user'];
 
     public function user()

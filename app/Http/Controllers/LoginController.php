@@ -29,7 +29,7 @@ class LoginController extends Controller
         $cookie = cookie('jwt', $token, 60 * 24);
         return response([
             'message' => 'You have been logged in',
-            'user' => $user
+            'user' => $user,
         ])->withCookie($cookie);
     }
 
@@ -40,11 +40,9 @@ class LoginController extends Controller
             'message' => 'You have been logged out'
         ])->withCookie($cookie);
     }
-
     public function user()
     {
-        if(!Auth::user())
-        {
+        if (!Auth::user()) {
             return response([
                 'message' => 'Invalid session',
                 'status' => 401

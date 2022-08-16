@@ -12,6 +12,13 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function getAvatarAttribute()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=200' . '&d=mp';
+    }
+
+    protected $appends = ['avatar'];
+
     /**
      * The attributes that are mass assignable.
      *

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\UpdateReviewRequest;
+use App\Models\Book;
 
 class ReviewController extends Controller
 {
@@ -15,7 +16,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return Review::with('user','book')->get();
+        return Review::with('user', 'book')->get();
     }
     /**
      * Show the form for creating a new resource.
@@ -33,9 +34,21 @@ class ReviewController extends Controller
      * @param  \App\Http\Requests\StoreReviewRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreReviewRequest $request)
+    public function store()
     {
-        //
+        $bookId = request('book_id');
+        $reviewBody = request('review_body');
+        $userId = request('user_id');
+        $rating = request('rating');
+
+        $review =  Review::create([
+            'book_id' => $bookId,
+            'user_id' => $userId,
+            'rating' => $rating,
+            'body' => $reviewBody
+        ]);
+
+        return response()->json($review);
     }
 
     /**
@@ -44,9 +57,9 @@ class ReviewController extends Controller
      * @param  \App\Models\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function show(Book $book)
     {
-        //
+        return response()->json($book->reviews);
     }
 
     /**

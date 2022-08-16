@@ -37,6 +37,7 @@ Route::get('/reviews/{book:id}', [ReviewController::class, 'show']);
 Route::post('/post-review', [ReviewController::class, 'store']);
 Route::post('/register', [RegisterController::class, 'create']);
 Route::post('/login', [LoginController::class, 'create']);
+Route::post('/user/{user:id}', [LoginController::class, 'update']);
 
 Route::middleware('auth:sanctum')->group(function () {
     // Route::post('/user', [LoginController::class, 'user']);

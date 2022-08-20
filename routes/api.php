@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CurrentlyReadingController;
@@ -10,7 +9,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReviewController;
-use App\Models\Genre;
+use App\Http\Controllers\WantToReadBookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +31,7 @@ Route::post('/search', [BookController::class, 'index']);
 Route::post('/author', [AuthorController::class, 'index']);
 Route::post('/genres', [GenreController::class, 'index']);
 Route::post('/currently-reading', [CurrentlyReadingController::class, 'index']);
+Route::get('/want-to-read/{user:id}', [WantToReadBookController::class, 'index']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::get('/reviews/{book:id}', [ReviewController::class, 'show']);
 Route::post('/post-review', [ReviewController::class, 'store']);

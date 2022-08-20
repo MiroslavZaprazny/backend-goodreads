@@ -40,7 +40,8 @@ class DatabaseSeeder extends Seeder
             Greene debunks our culture’s many myths about genius and distills the wisdom of the ages to 
             reveal the secret to greatness. With this seminal text as a guide, 
             readers will learn how to unlock the passion within and become masters.',
-            'published_at' => '2012-08-13'
+            'published_at' => '2012-08-13',
+            'img' => '../../public/images/mastery.jpg'
         ]);
 
         \App\Models\User::factory()->create([

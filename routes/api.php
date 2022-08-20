@@ -36,10 +36,12 @@ Route::get('/want-to-read/{user:id}', [WantToReadBookController::class, 'index']
 Route::get('/books-read/{user:id}', [ReadBookController::class, 'show']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::get('/reviews/{book:id}', [ReviewController::class, 'show']);
-Route::post('/post-review', [ReviewController::class, 'store']);
+Route::post('/reviews', [ReviewController::class, 'store']);
 Route::post('/register', [RegisterController::class, 'create']);
 Route::post('/login', [LoginController::class, 'create']);
 Route::post('/user/{user:id}', [LoginController::class, 'update']);
+
+Route::delete('/read-book/{readBook:id}', [ReadBookController::class, 'destroy']);
 
 Route::middleware('auth:sanctum')->group(function () {
     // Route::post('/user', [LoginController::class, 'user']);

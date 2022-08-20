@@ -32,7 +32,7 @@ class CurrentlyReadingController extends Controller
      */
     public function edit(CurrentlyReading $currentlyReading)
     {
-        $currentlyReading = CurrentlyReading::where(['user_id' => request('user_id')])->where(['status' => 1])->first();
+        $currentlyReading = CurrentlyReading::where(['user_id' => request('user_id')])->where(['status' => 1])->firstOrFail();
 
         if (request('status') === 0) {
             $currentlyReading->status = 0;

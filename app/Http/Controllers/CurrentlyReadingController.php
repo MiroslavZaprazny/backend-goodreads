@@ -25,38 +25,6 @@ class CurrentlyReadingController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreCurrentlyReadingRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreCurrentlyReadingRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\CurrentlyReading  $currentlyReading
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CurrentlyReading $currentlyReading)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\CurrentlyReading  $currentlyReading
@@ -76,28 +44,5 @@ class CurrentlyReadingController extends Controller
         $currentlyReading->save();
 
         return response()->json($currentlyReading);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCurrentlyReadingRequest  $request
-     * @param  \App\Models\CurrentlyReading  $currentlyReading
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateCurrentlyReadingRequest $request, CurrentlyReading $currentlyReading)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\CurrentlyReading  $currentlyReading
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CurrentlyReading $currentlyReading)
-    {
-        //
     }
 }

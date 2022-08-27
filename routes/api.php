@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReadBookController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserNoteController;
 use App\Http\Controllers\WantToReadBookController;
 
 /*
@@ -39,6 +40,7 @@ Route::delete('/want-to-read/{user:id}', [WantToReadBookController::class, 'dest
 Route::get('/books-read/{user:id}', [ReadBookController::class, 'show']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::get('/reviews/{book:id}', [ReviewController::class, 'show']);
+Route::get('/notes/{book:id}/{user:id}', [UserNoteController::class, 'show']);
 Route::post('/reviews', [ReviewController::class, 'store']);
 Route::post('/register', [RegisterController::class, 'create']);
 Route::post('/login', [LoginController::class, 'create']);

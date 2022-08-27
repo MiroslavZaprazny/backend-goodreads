@@ -11,6 +11,8 @@ class ReadBook extends Model
 
     protected $with = ['book'];
 
+    protected $fillable = ['user_id', 'book_id', 'status'];
+
     public function book()
     {
         return $this->belongsTo(Book::class);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CurrentlyReading;
 use App\Http\Requests\StoreCurrentlyReadingRequest;
 use App\Http\Requests\UpdateCurrentlyReadingRequest;
+use App\Models\ReadBook;
 use App\Models\User;
 use Illuminate\Support\Facades\Request;
 
@@ -37,6 +38,13 @@ class CurrentlyReadingController extends Controller
         if (request('status') === 0) {
             $currentlyReading->status = 0;
             $currentlyReading->save();
+
+            ReadBook::create([
+                'user_id' => request('user_id'),
+                'book_id' => request('book_id'),
+                'status' => 1
+            ]);
+
             return response()->json($currentlyReading);
         }
 

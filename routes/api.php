@@ -33,6 +33,8 @@ Route::post('/search', [BookController::class, 'index']);
 Route::post('/author', [AuthorController::class, 'index']);
 Route::post('/genres', [GenreController::class, 'index']);
 Route::post('/currently-reading', [CurrentlyReadingController::class, 'index']);
+Route::delete('/currently-reading', [CurrentlyReadingController::class, 'destroy']);
+Route::post('/add-currently-reading', [CurrentlyReadingController::class, 'store']);
 Route::get('/want-to-read/{user:id}', [WantToReadBookController::class, 'index']);
 Route::post('/want-to-read/{user:id}', [WantToReadBookController::class, 'show']);
 Route::post('/add-want-to-read/{user:id}', [WantToReadBookController::class, 'create']);

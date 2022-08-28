@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CurrentlyReading;
-use App\Http\Requests\StoreCurrentlyReadingRequest;
-use App\Http\Requests\UpdateCurrentlyReadingRequest;
 use App\Models\ReadBook;
-use App\Models\User;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+use App\Models\CurrentlyReading;
 
 class CurrentlyReadingController extends Controller
 {
@@ -52,5 +49,27 @@ class CurrentlyReadingController extends Controller
         $currentlyReading->save();
 
         return response()->json($currentlyReading);
+    }
+
+    public function store(Request $request)
+    {
+        CurrentlyReading::create([
+            'user_id' => $request->input('user_id'),
+            'book_id' => $request->input('book_id'),
+            'status' => 1
+        ]);
+
+        return response()->json([
+            'success' => 'Added book to currently reading'
+        ]);
+    }
+
+    public function destroy(Request $request)
+    {
+        CurrentlyReading::where(['user_id' => $request->input('user_id')])->where(['book_id' => $request->input('book_id')])->delete();
+
+        return response()->json([
+            'success' => 'Book was removed from currently reading'
+        ]);
     }
 }

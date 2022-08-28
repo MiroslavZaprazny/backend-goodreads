@@ -41,6 +41,7 @@ Route::get('/books-read/{user:id}', [ReadBookController::class, 'show']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::get('/reviews/{book:id}', [ReviewController::class, 'show']);
 Route::get('/notes/{book:id}/{user:id}', [UserNoteController::class, 'show']);
+Route::post('/notes', [UserNoteController::class, 'store']);
 Route::post('/reviews', [ReviewController::class, 'store']);
 Route::post('/register', [RegisterController::class, 'create']);
 Route::post('/login', [LoginController::class, 'create']);

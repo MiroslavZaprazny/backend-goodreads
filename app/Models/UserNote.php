@@ -10,4 +10,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class UserNote extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'book_id', 'notes'];
 }
